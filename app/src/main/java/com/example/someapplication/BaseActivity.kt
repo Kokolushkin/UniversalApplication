@@ -8,6 +8,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 abstract class BaseActivity(private val navigationNumber : Int) : AppCompatActivity(){
     fun setupBottomNavigation(){
         bottom_navigation_view.setIconSize(32f, 32f)
+
+        bottom_navigation_view.setTextVisibility(false)
+        bottom_navigation_view.enableItemShiftingMode(false)
+        bottom_navigation_view.enableShiftingMode(false)
+        bottom_navigation_view.enableAnimation(false)
+        for (i in 0 until bottom_navigation_view.menu.size()) {
+            bottom_navigation_view.setIconTintList(i, null)
+        }
+
         bottom_navigation_view.setOnNavigationItemSelectedListener {
             val nextActivity =
                 when (it.itemId) {
